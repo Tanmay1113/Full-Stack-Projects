@@ -1,0 +1,88 @@
+﻿/* General Setup */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0ffef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* Form Elements Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Notification Section */
+.notification-section {
+    border: 1px solid #cceeff;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #e6f7ff;
+    margin-top: 25px;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #3e8e41;
+}
