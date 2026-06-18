@@ -1,20 +1,45 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import psycopg2
+from supabase import create_client, Client
+
+from dotenv import load_dotenv
 import os
+
+load_dotenv("../.env")
 
 app = Flask(__name__,
             template_folder="../frontend/templates",
             static_folder="../frontend/static")
 app.secret_key = "student_project_secret_key"
 
-DB_HOST = "localhost"
-DB_NAME = "project"
-DB_USER = "postgres"
-DB_PASSWORD = "0987654321"
+DB_HOST = os.getenv("SUPABASE_DB_HOST")
+DB_NAME = os.getenv("SUPABASE_DB_NAME", "postgres")
+DB_USER = os.getenv("SUPABASE_DB_USER", "postgres")
+DB_PASSWORD = os.getenv("SUPABASE_DB_PASSWORD")
+DB_PORT = os.getenv("SUPABASE_DB_PORT", "5432")
 
 def get_db_connection():
-    return psycopg2.connect(host=DB_HOST, database=DB_NAME, user=DB_USER, password=DB_PASSWORD)
+    return psycopg2.connect(
+        host=DB_HOST,
+        database=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        port=DB_PORT,
+        sslmode="require"
+    )
 
+try:
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT version();")
+    print("✅ Connected to Supabase!")
+    print(cur.fetchone())
+    cur.close()
+    conn.close()
+except Exception as e:
+    print("❌ Connection Failed:", e)
+
+    
 @app.route('/')
 def home():
     if 'user_id' in session:
