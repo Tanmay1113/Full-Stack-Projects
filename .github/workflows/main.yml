@@ -29,4 +29,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build .
+          docker build \
+          -t project-ops-manager \
+          -f Project-Operations-Manager/Dockerfile \
+          Project-Operations-Manager
