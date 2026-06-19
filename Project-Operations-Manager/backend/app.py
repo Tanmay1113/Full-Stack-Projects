@@ -5,7 +5,7 @@ from supabase import create_client, Client
 from dotenv import load_dotenv
 import os
 
-load_dotenv("../.env")
+load_dotenv()
 
 app = Flask(__name__,
             template_folder="../frontend/templates",
@@ -27,17 +27,6 @@ def get_db_connection():
         port=DB_PORT,
         sslmode="require"
     )
-
-try:
-    conn = get_db_connection()
-    cur = conn.cursor()
-    cur.execute("SELECT version();")
-    print("✅ Connected to Supabase!")
-    print(cur.fetchone())
-    cur.close()
-    conn.close()
-except Exception as e:
-    print("❌ Connection Failed:", e)
 
     
 @app.route('/')
@@ -335,4 +324,5 @@ def logout():
     return redirect(url_for('home'))
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
