@@ -71,7 +71,7 @@ Built with **Python Flask** and **PostgreSQL**, the app lets users register, log
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/automatic-email-reminder-app.git
+git clone https://github.com/tanmay1113/automatic-email-reminder-app.git
 cd automatic-email-reminder-app
 
 # Create and activate a virtual environment
@@ -159,7 +159,3 @@ S.Y.B.Sc. (Information Technology), Semester III — Mini Project (IT231FP)
 Savitribai Phule Pune University, 2025–26
 
 ---
-
-## 📄 License
-
-This project was developed as part of an academic mini project. Add a license here if you plan to open-source it (e.g., MIT).
